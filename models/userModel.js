@@ -8,8 +8,9 @@ const userSchema = new mongoose.Schema({
     password: String,
     name: String,
     email: String,
-    profilePic: String,
-    account_activation_status: Boolean
+    profilePic: Object,
+    account_activation_status: Boolean,
+    posts: [{type: mongoose.Schema.Types.ObjectId , ref: 'Post'}]
 });
 
 userSchema.plugin(passportLocalMongoose);
